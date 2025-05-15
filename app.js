@@ -4,6 +4,10 @@ import scoreRouter from "./routes/scoreRouter";
 import cors from "cors";
 import authenticateJWT from "./middlewares/authenticateToken";
 import timerRouter from "./routes/timerRouter";
+import authRouter from "./routes/authRouter";
+
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,6 +17,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(import.meta.dirname, "public")));
 app.use(cors());
 
+app.use("/auth", authRouter);
 app.use("/scoreboard", authenticateJWT, scoreRouter);
 app.use("/game", timerRouter);
 
