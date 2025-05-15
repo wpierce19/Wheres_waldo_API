@@ -3,7 +3,7 @@ import path from "path";
 import scoreRouter from "./routes/scoreRouter";
 import cors from "cors";
 import authenticateJWT from "./middlewares/authenticateToken";
-import timerFunc from "./middlewares/timerFunc";
+import timerRouter from "./routes/timerRouter";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,7 +14,7 @@ app.use(express.static(path.join(import.meta.dirname, "public")));
 app.use(cors());
 
 app.use("/scoreboard", authenticateJWT, scoreRouter);
-app.use("/game", timerFunc);
+app.use("/game", timerRouter);
 
 app.use((err, req,res,next) => {
     const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
