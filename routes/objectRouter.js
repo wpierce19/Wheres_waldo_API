@@ -1,5 +1,5 @@
 import { Router } from "express";
-import object_coords from "../middlewares/object_pos";
+import object_coords from "../middlewares/object_pos.js";
 
 const objectRouter = Router();
 
