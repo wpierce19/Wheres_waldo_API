@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Comment {
+  id           Int      @id @default(autoincrement())
+  created_at   DateTime @default(now())
+  updated_at   DateTime
+  text         String
+  author_email String
+  author_name  String
+  post_id      Int
+  Post         Post     @relation(fields: [post_id], references: [id], onDelete: Cascade)
+}
+
+model Post {
+  id         Int       @id @default(autoincrement())
+  created_at DateTime  @default(now())
+  updated_at DateTime
+  title      String
+  content    String
+  author_id  Int
+  published  Boolean   @default(false)
+  Comment    Comment[]
+  User       User      @relation(fields: [author_id], references: [id])
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  name     String
+  password String
+  role     Role   @default(USER)
+  Post     Post[]
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+
+//For Where's Waldo Project
+model Score {
+  id        Int      @id @default(autoincrement())
+  username  String
+  time      Int
+  clicks    Int
+  createdAt DateTime @default(now())
+}
