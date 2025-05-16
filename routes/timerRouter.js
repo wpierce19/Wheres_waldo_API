@@ -9,7 +9,7 @@ timeRouter.post("/start", (req,res) => {
     res.json({message: "Timer Started"});
 });
 
-timeRouter.get("time", (req,res) => {
+timeRouter.get("/time", (req,res) => {
     const userId = req.query.userId;
     const time = timeFunc.getTime(userId);
     res.json({time});

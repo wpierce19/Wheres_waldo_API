@@ -6,6 +6,7 @@ import authenticateJWT from "./middlewares/authenticateToken.js";
 import timerRouter from "./routes/timerRouter.js";
 import authRouter from "./routes/authRouter.js";
 import clickRouter from "./routes/clickRouter.js";
+import objectRouter from "./routes/objectRouter.js";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -22,6 +23,7 @@ app.use("/auth", authRouter);
 app.use("/scoreboard", authenticateJWT, scoreRouter);
 app.use("/game",authenticateJWT, timerRouter);
 app.use("/verify-click", authenticateJWT, clickRouter)
+app.use("/objects", authenticateJWT, objectRouter);
 
 app.use((err, req,res,next) => {
     const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
