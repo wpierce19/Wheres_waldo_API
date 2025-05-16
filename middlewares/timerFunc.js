@@ -1,6 +1,6 @@
 const timers = {};
 
-export const startTimer = (userId, onTick) => {
+const startTimer = (userId, onTick) => {
   if (timers[userId]) return;
 
   let currentTIme = 0;
@@ -15,7 +15,7 @@ export const startTimer = (userId, onTick) => {
   timers[userId].interval = interval;
 };
 
-export const stopTimer = (userId) => {
+const stopTimer = (userId) => {
   const timer = timers[userId];
   if (timer) {
     clearInterval(timer.interval);
@@ -26,6 +26,12 @@ export const stopTimer = (userId) => {
   return null;
 };
 
-export const getTime = (userId) => {
+const getTime = (userId) => {
   return timers[userId]?.currentTIme || 0;
 };
+
+export default {
+  startTimer,
+  stopTimer,
+  getTime
+}
