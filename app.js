@@ -1,11 +1,11 @@
 import express from "express";
 import path from "path";
-import scoreRouter from "./routes/scoreRouter";
+import scoreRouter from "./routes/scoreRouter.js";
 import cors from "cors";
-import authenticateJWT from "./middlewares/authenticateToken";
-import timerRouter from "./routes/timerRouter";
-import authRouter from "./routes/authRouter";
-import clickRouter from "./routes/clickRouter";
+import authenticateJWT from "./middlewares/authenticateToken.js";
+import timerRouter from "./routes/timerRouter.js";
+import authRouter from "./routes/authRouter.js";
+import clickRouter from "./routes/clickRouter.js";
 
 import dotenv from "dotenv";
 dotenv.config();
