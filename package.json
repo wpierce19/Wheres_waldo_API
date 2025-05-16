@@ -2,6 +2,7 @@
   "name": "wheres_waldo_api",
   "version": "1.0.0",
   "description": "API for Wheres waldo Front",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

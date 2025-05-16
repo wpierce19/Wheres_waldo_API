@@ -3,7 +3,7 @@ import scoreController from "../controllers/scoreController.js";
 
 const scoreRouter = Router();
 
-scoreRouter.get("/scoreboard", scoreController.getScores);
-scoreRouter.post("/scoreboard", scoreController.saveScore);
+scoreRouter.get("/", scoreController.getScores);
+scoreRouter.post("/", scoreController.saveScore);
 
 export default scoreRouter;
