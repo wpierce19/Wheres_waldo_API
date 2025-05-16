@@ -53,10 +53,10 @@ const object_coords = [
   },
   {
     name: "Puck",
-    x_min: 928 / 1920,
-    x_max: 982 / 1920,
-    y_min: 430 / 1100,
-    y_max: 470 / 1100,
+    x_min: 925 / 1920,
+    x_max: 985 / 1920,
+    y_min: 427 / 1100,
+    y_max: 473 / 1100,
     checkmark: {
         x: 828 / 1920,
         y: 872 / 1100,

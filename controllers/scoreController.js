@@ -3,8 +3,8 @@ import asyncHandler from "express-async-handler";
 
 const prisma = new PrismaClient();
 
-const getScores = asyncHandler(async (req,res) => {
-    const scores = await prisma.scores.findMany({});
+const getScores = asyncHandler(async (req, res) => {
+    const scores = await prisma.score.findMany({});
     res.send(scores);
 });
 
@@ -23,6 +23,7 @@ const saveScore = async (req, res) => {
     const newScore = await prisma.score.create({ data });
 
     res.status(201).json(newScore);
+    console.log("✅Score saved!");
   } catch (err) {
     console.error("❌ Error saving score:", err); // Will show Prisma error
     res.status(500).json({ error: "Internal server error" });
