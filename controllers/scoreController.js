@@ -9,11 +9,11 @@ const getScores = asyncHandler(async (req,res) => {
 });
 
 const saveScore = asyncHandler(async (req,res) => {
-    const {username, time, clicks} = req.body;
-    const data = {username: username, time: time, clicks: clicks};
-    const newScore = await prisma.scores.create({data});
-    //Commented out for now
-    //res.send(newScore);
+    const { username, time, clicks } = req.body;
+    const data = { username, time, clicks };
+    const newScore = await prisma.scores.create({ data });
+
+    res.status(201).json(newScore); // ✅ SEND RESPONSE
 });
 
 export default {getScores, saveScore};
