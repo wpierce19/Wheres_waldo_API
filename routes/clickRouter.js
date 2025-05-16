@@ -3,7 +3,7 @@ import verifyClick from "../controllers/objectController.js";
 
 const clickRouter = Router();
 
-Router.post("/", (req,res) => {
+clickRouter.post("/", (req,res) => {
     const {x,y} = req.body;
 
     const clickWidth = 0.015; //Can change if needed
