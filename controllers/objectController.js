@@ -1,4 +1,4 @@
-import object_coords from "../middlewares/object_pos"
+import object_coords from "../middlewares/object_pos.js"
 
 const verifyClick = (x_min,x_max,y_min,y_max) => {
     const foundObject = object_coords.find((obj) => {

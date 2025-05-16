@@ -1,5 +1,5 @@
 import { Router } from "express";
-import timeFunc from "../middlewares/timerFunc";
+import timeFunc from "../middlewares/timerFunc.js";
 
 timeRouter = Router();
 

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import verifyClick from "../controllers/objectController";
+import verifyClick from "../controllers/objectController.js";
 
 const clickRouter = Router();
 
