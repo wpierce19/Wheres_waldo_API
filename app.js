@@ -5,6 +5,7 @@ import cors from "cors";
 import authenticateJWT from "./middlewares/authenticateToken";
 import timerRouter from "./routes/timerRouter";
 import authRouter from "./routes/authRouter";
+import clickRouter from "./routes/clickRouter";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -19,7 +20,8 @@ app.use(cors());
 
 app.use("/auth", authRouter);
 app.use("/scoreboard", authenticateJWT, scoreRouter);
-app.use("/game", timerRouter);
+app.use("/game",authenticateJWT, timerRouter);
+app.use("/verify-click", authenticateJWT, clickRouter)
 
 app.use((err, req,res,next) => {
     const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
